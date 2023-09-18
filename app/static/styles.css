@@ -1,16 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     height: 100vh;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     background: linear-gradient(to bottom, #0072ff, #00c6ff);
-}
-
-.container {
-    text-align: center;
 }
 
 .ascii-title {
