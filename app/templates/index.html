@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+{% block content %}
+    <head>
+    <!-- Include Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    </head>
+    <pre class="ascii-title">{{ ascii_title }}</pre>
+    <div class="status-box">
+        <h1>Status: {{ status }}</h1>
+        <form action="{{ url_for('restart_service') }}" method="post">
+            <button type="submit" class="restart-btn">Restart Script</button>
+        </form>
+    </div>
+{% endblock %}

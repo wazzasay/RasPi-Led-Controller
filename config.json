@@ -1,0 +1,19 @@
+{
+    "strands": [
+        {
+            "universe": 10,
+            "pixels": 170,
+            "gpio": "GPIO21"
+        },
+        {
+            "universe": 11,
+            "pixels": 170,
+            "gpio": "GPIO21"
+        },
+        {
+            "universe": 12,
+            "pixels": 5,
+            "gpio": "GPIO21"
+        }
+    ]
+}

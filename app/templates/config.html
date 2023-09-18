@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+{% if saved %}
+    <script>
+        alert("Configuration updated successfully!");
+    </script>
+{% endif %}
+{% block content %}
+<div class="content">
+    <h2>Configuration</h2>
+    <form action="{{ url_for('config') }}" method="post">
+        {% for strand in strands %}
+        <div class="form-group">
+            <label for="universe_{{ loop.index0 }}">Universe {{ loop.index0 + 1 }}</label>
+            <input type="number" class="form-control" id="universe_{{ loop.index0 }}" name="universe_{{ >        </div>
+        <div class="form-group">
+            <label for="gpio_pin_{{ loop.index0 }}">GPIO Pin {{ loop.index0 + 1 }}</label>
+            <input type="text" class="form-control" id="gpio_pin_{{ loop.index0 }}" name="gpio_pin_{{ lo>        </div>
+        <div class="form-group">
+            <label for="num_leds_{{ loop.index0 }}">Number of LEDs {{ loop.index0 + 1 }}</label>
+            <input type="number" class="form-control" id="num_leds_{{ loop.index0 }}" name="num_leds_{{ >        </div>
+        <hr>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Save Configuration</button>
+    </form>
+</div>
+{% endblock %}
