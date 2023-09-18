@@ -45,15 +45,3 @@ h1 {
 .restart-btn:hover {
     background-color: #f0f0f0;
 }
-
-.navbar {
-    background-color: #343a40;  /* Dark gray background */
-}
-
-.navbar-brand, .nav-link {
-    color: #ffffff !important;  /* White text */
-}
-
-.nav-link:hover {
-    color: #dddddd !important;  /* Light gray on hover */
-}
