@@ -1,6 +1,7 @@
 #!/bin/bash
 
-echo "
+# Define the ASCII art title
+TITLE= "
 $$$$$$$\                      $$$$$$$\  $$\                                                                               
 $$  __$$\                     $$  __$$\ \__|                                                                              
 $$ |  $$ | $$$$$$\   $$$$$$$\ $$ |  $$ |$$\                                                                               
@@ -24,6 +25,10 @@ $$$$$$$$\\$$$$$$$\ \$$$$$$$ |      \$$$$$$  |\$$$$$$  |$$ |  $$ | \$$$$  |$$ |  
                                                                                                                           
                                                                                                                           
 "
+
+# Print the ASCII art title
+echo "$TITLE"
+
 # Navigate to the main repository directory
 cd /RasPi-Led-Controller/
 
