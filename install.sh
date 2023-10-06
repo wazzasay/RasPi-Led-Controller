@@ -1,5 +1,24 @@
 #!/bin/bash
 
+# Define the ASCII art title
+TITLE="
+  _____           _____ _                                          
+ |  __ \         |  __ (_)                                         
+ | |__) |__ _ ___| |__) |                                          
+ |  _  // _` / __|  ___/ |                                         
+ | | \ \ (_| \__ \ |   | |                                         
+ |_|  \_\__,_|___/_|  _|_|_            _             _ _           
+ | |            | |  / ____|          | |           | | |          
+ | |     ___  __| | | |     ___  _ __ | |_ _ __ ___ | | | ___ _ __ 
+ | |    / _ \/ _` | | |    / _ \| '_ \| __| '__/ _ \| | |/ _ \ '__|
+ | |___|  __/ (_| | | |___| (_) | | | | |_| | | (_) | | |  __/ |   
+ |______\___|\__,_|  \_____\___/|_| |_|\__|_|  \___/|_|_|\___|_|   
+
+"
+
+# Print the ASCII art title
+echo "$TITLE"
+
 # Navigate to the main repository directory
 cd /RasPi-Led-Controller/
 
@@ -23,12 +42,11 @@ Description=WS2812 Artnet Service
 After=network.target
 
 [Service]
-User=root
-WorkingDirectory=/RasPi-Led-Controller/
-ExecStart=/usr/bin/python3 /RasPi-Led-Controller/ws2812Artnet.py
+WorkingDirectory=/root/RasPi-Led-Controller/
+ExecStart=/usr/bin/python3 /root/RasPi-Led-Controller/ws2812Artnet.py
 Restart=always
-StandardOutput=append:/RasPi-Led-Controller/logs/ws2812Artnet.log
-StandardError=append:/RasPi-Led-Controller/logs/ws2812Artnet_error.log
+StandardOutput=append:/root/RasPi-Led-Controller/logs/ws2812Artnet.log
+StandardError=append:/root/RasPi-Led-Controller/logs/ws2812Artnet_error.log
 
 [Install]
 WantedBy=multi-user.target
@@ -42,11 +60,11 @@ After=network.target
 
 [Service]
 User=root
-WorkingDirectory=/RasPi-Led-Controller/app/
-ExecStart=/usr/bin/python3 /RasPi-Led-Controller/app/app.py
+WorkingDirectory=/root/RasPi-Led-Controller/app/
+ExecStart=/usr/bin/python3 /root/RasPi-Led-Controller/app/app.py
 Restart=always
-StandardOutput=append:/RasPi-Led-Controller/logs/app.log
-StandardError=append:/RasPi-Led-Controller/logs/app_error.log
+StandardOutput=append:/root/RasPi-Led-Controller/logs/app.log
+StandardError=append:/root/RasPi-Led-Controller/logs/app_error.log
 
 [Install]
 WantedBy=multi-user.target
