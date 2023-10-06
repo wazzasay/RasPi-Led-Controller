@@ -5,9 +5,9 @@ import json  # Make sure to import json
 
 app = Flask(__name__)
 
-# Load the ASCII title from the title.txt file
-with open('title.txt', 'r') as f:
-    ascii_title = f.read()
+# Load the SVG title from the title.svg file
+with open('title.svg', 'r') as f:
+    svg_title = f.read()
 
 # Dynamically determine the path to the config.json file
 config_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../config.json')
@@ -62,7 +62,7 @@ def config():
 @app.route('/')
 def index():
     status = check_service_status()
-    return render_template('index.html', status=status, ascii_title=ascii_title)
+    return render_template('index.html', status=status, svg_title=svg_title)
 
 @app.route('/restart_service', methods=['POST'])
 def restart_service():
