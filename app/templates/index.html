@@ -2,7 +2,7 @@
 {% block content %}
     <head>
     <!-- Include Custom Styles -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     </head>
     <img class="svg-title" src="{{ url_for('static', filename='title.svg') }}">
     <div class="status-box">
