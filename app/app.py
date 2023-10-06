@@ -6,7 +6,7 @@ import json  # Make sure to import json
 app = Flask(__name__, static_folder='static')
 
 # Load the SVG title from the title.svg file
-with open('title.svg', 'r') as f:
+with open('static/title.svg', 'r') as f:
     svg_title = f.read()
 
 # Dynamically determine the path to the config.json file
