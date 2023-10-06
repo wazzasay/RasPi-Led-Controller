@@ -21,7 +21,7 @@ pip3 install -r requirements.txt
 
 # Copy the ws2812Artnet.py and app.py scripts to /usr/local/bin/
 sudo cp ws2812Artnet.py /usr/local/bin/
-sudo cp app.py /usr/local/bin/
+sudo cp app/app.py /usr/local/bin/
 
 # Create a systemd service file for the ws2812Artnet.py script
 sudo tee /etc/systemd/system/ws2812Artnet.service > /dev/null <<EOF
