@@ -3,7 +3,7 @@ import os
 import subprocess
 import json  # Make sure to import json
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='static')
 
 # Load the SVG title from the title.svg file
 with open('title.svg', 'r') as f:
