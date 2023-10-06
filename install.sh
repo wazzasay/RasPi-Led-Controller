@@ -30,7 +30,7 @@ Description=WS2812 Artnet Service
 After=network.target
 
 [Service]
-User=pi
+User=root
 WorkingDirectory=/usr/local/bin
 ExecStart=/usr/bin/python3 /usr/local/bin/ws2812Artnet.py
 Restart=always
@@ -46,7 +46,7 @@ Description=My App Service
 After=network.target
 
 [Service]
-User=pi
+User=root
 WorkingDirectory=/usr/local/bin
 ExecStart=/usr/bin/python3 /usr/local/bin/app.py
 Restart=always

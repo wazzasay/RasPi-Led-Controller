@@ -6,7 +6,7 @@ import board
 import neopixel
 
 dirname = os.path.dirname(__file__)
-data = json.load(open(os.path.join(dirname, 'config.json')))
+data = json.load(open('/RasPi-Led-Controller/config.json'))
 
 # For now, set the GPIO pin directly
 gpio_pin = board.D21
