@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Navigate to the main repository directory
+cd /RasPi-Led-Controller/
+
 # Update the system
 sudo apt-get update
 sudo apt-get upgrade -y
@@ -10,18 +13,8 @@ sudo apt-get install -y git
 # Install Python3 and pip3, if not already installed
 sudo apt-get install -y python3 python3-pip
 
-# Clone the repository containing the scripts
-git clone https://github.com/wazzasay/RasPi-Led-Controller.git
-
-# Navigate to the cloned repository
-cd RasPi-Led-Controller
-
 # Install Python dependencies from requirements.txt
 pip3 install -r requirements.txt
-
-# Copy the ws2812Artnet.py and app.py scripts to /usr/local/bin/
-sudo cp ws2812Artnet.py /usr/local/bin/
-sudo cp app/app.py /usr/local/bin/
 
 # Create a systemd service file for the ws2812Artnet.py script
 sudo tee /etc/systemd/system/ws2812Artnet.service > /dev/null <<EOF
@@ -31,9 +24,11 @@ After=network.target
 
 [Service]
 User=root
-WorkingDirectory=/usr/local/bin
-ExecStart=/usr/bin/python3 /usr/local/bin/ws2812Artnet.py
+WorkingDirectory=/RasPi-Led-Controller/
+ExecStart=/usr/bin/python3 /RasPi-Led-Controller/ws2812Artnet.py
 Restart=always
+StandardOutput=append:/RasPi-Led-Controller/logs/ws2812Artnet.log
+StandardError=append:/RasPi-Led-Controller/logs/ws2812Artnet_error.log
 
 [Install]
 WantedBy=multi-user.target
@@ -47,9 +42,11 @@ After=network.target
 
 [Service]
 User=root
-WorkingDirectory=/usr/local/bin
-ExecStart=/usr/bin/python3 /usr/local/bin/app.py
+WorkingDirectory=/RasPi-Led-Controller/app/
+ExecStart=/usr/bin/python3 /RasPi-Led-Controller/app/app.py
 Restart=always
+StandardOutput=append:/RasPi-Led-Controller/logs/app.log
+StandardError=append:/RasPi-Led-Controller/logs/app_error.log
 
 [Install]
 WantedBy=multi-user.target
@@ -60,9 +57,5 @@ sudo systemctl enable ws2812Artnet.service
 sudo systemctl start ws2812Artnet.service
 sudo systemctl enable app.service
 sudo systemctl start app.service
-
-# Any other system-wide dependencies or configurations go here
-# For example:
-# sudo apt-get install -y some-other-dependency
 
 echo "Installation completed!"
